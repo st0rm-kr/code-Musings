@@ -1,9 +1,11 @@
 #include <vector>
 
+#include "209.cpp"
 #include "34.cpp"
 #include "35.cpp"
-#include "69.cpp"
 #include "367.cpp"
+#include "59.cpp"
+#include "69.cpp"
 #include "gtest/gtest.h"
 
 TEST(BinarySearch, Test35) {
@@ -36,4 +38,30 @@ TEST(BinarySearch, TEST367) {
   EXPECT_TRUE(l367.isPerfectSquare(16));
   EXPECT_FALSE(l367.isPerfectSquare(14));
   EXPECT_FALSE(l367.isPerfectSquare(5));
+}
+
+TEST(Other, TEST209) {
+  l209::Solution l209;
+  std::pair<int, vector<int>> case1 = {7, {2, 3, 1, 2, 4, 3}};
+  std::pair<int, vector<int>> case2 = {4, {1, 4, 4}};
+  std::pair<int, vector<int>> case3 = {11, {1, 1, 1, 1, 1, 1, 1, 1}};
+
+  EXPECT_EQ(l209.minSubArrayLen(case1.first, case1.second), 2);
+  EXPECT_EQ(l209.minSubArrayLen(case2.first, case2.second), 1);
+  EXPECT_EQ(l209.minSubArrayLen(case3.first, case3.second), 0);
+
+  EXPECT_EQ(l209.minSubArrayLen2(case1.first, case1.second), 2);
+  EXPECT_EQ(l209.minSubArrayLen2(case2.first, case2.second), 1);
+  EXPECT_EQ(l209.minSubArrayLen2(case3.first, case3.second), 0);
+}
+
+TEST(Other, TEST59) {
+  l59::Solution l59;
+
+  std::pair<int, vector<vector<int>>> case1 = {
+      3, {{1, 2, 3}, {8, 9, 4}, {7, 6, 5}}};
+  std::pair<int, vector<vector<int>>> case2 = {1, {{1}}};
+
+  EXPECT_EQ(l59.generateMatrix(case1.first), case1.second);
+  EXPECT_EQ(l59.generateMatrix(case2.first), case2.second);
 }
