@@ -4,6 +4,10 @@
 #include "35.cpp"
 #include "69.cpp"
 #include "367.cpp"
+#include "26.cpp"
+#include "283.cpp"
+#include "844.cpp"
+#include "977.cpp"
 #include "gtest/gtest.h"
 
 TEST(BinarySearch, Test35) {
@@ -36,4 +40,64 @@ TEST(BinarySearch, TEST367) {
   EXPECT_TRUE(l367.isPerfectSquare(16));
   EXPECT_FALSE(l367.isPerfectSquare(14));
   EXPECT_FALSE(l367.isPerfectSquare(5));
+}
+
+TEST(EraseElements, TEST26) {
+  l26::Solution l26;
+  vector<int> a = {1, 1, 2};
+  vector<int> b = {0, 0, 1, 1, 2, 2, 3, 3, 4};
+  vector<int> c = {1, 2, 3, 3};
+  vector<int> a_ = {1, 2};
+  vector<int> b_ = {0, 1, 2, 3, 4};
+  vector<int> c_ = {1, 2, 3};
+  l26.removeDuplicates(a);
+  l26.removeDuplicates(b);
+  l26.removeDuplicates(c);
+
+  auto check = [&](auto a, auto b, std::size_t n) {
+    for (int i = 0; i < n; ++i) {
+      if (a[i] != b[i]) return false;
+    }
+    return true;
+  };
+  EXPECT_TRUE(check(a, a_, a_.size()));
+  EXPECT_TRUE(check(b, b_, b_.size()));
+  EXPECT_TRUE(check(c, c_, c_.size()));
+}
+
+TEST(EraseElements, TEST283) {
+  l283::Solution l283;
+  vector<int> a = {0, 1, 0, 3, 12};
+  vector<int> b = {0};
+  vector<int> a_ = {1, 3, 12, 0, 0};
+  vector<int> b_ = {0};
+
+  auto check = [&](auto a, auto b, std::size_t n) {
+    for (int i = 0; i < n; ++i) {
+      if (a[i] != b[i]) return false;
+    }
+    return true;
+  };
+
+  l283.moveZeroes(a);
+  l283.moveZeroes(b);
+  EXPECT_TRUE(check(a, a_, a.size()));
+  EXPECT_TRUE(check(b, b_, b.size()));
+}
+
+TEST(EraseElements, TEST844) {
+  l844::Solution l844;
+  EXPECT_TRUE(l844.backspaceCompare("ab#c", "ad#c"));
+  EXPECT_TRUE(l844.backspaceCompare("ab##", "c#d#"));
+  EXPECT_FALSE(l844.backspaceCompare("a#c", "b"));
+}
+
+TEST(EraseElements, TEST977) {
+  l977::Solution l977;
+  vector<int> a = {-4, -1, 0, 3, 10};
+  vector<int> b = {-7, -3, 2, 3, 11};
+  vector<int> a_ = {0, 1, 9, 16, 100};
+  vector<int> b_ = {4, 9, 9, 49, 121};
+  EXPECT_EQ(l977.sortedSquares(a), a_);
+  EXPECT_EQ(l977.sortedSquares(b), b_);
 }
