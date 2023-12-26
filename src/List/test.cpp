@@ -1,5 +1,8 @@
 #include "203.cpp"
 #include "707.cpp"
+#include "206.cpp"
+#include "24.cpp"
+#include "19.cpp"
 #include "gtest/gtest.h"
 
 ListNode* GenerateList(const std::vector<int> &container) {
@@ -51,4 +54,41 @@ TEST(DesignList, TEST707) {
   EXPECT_EQ(myList1.get(1), 2);
   myList1.deleteAtIndex(1);
   EXPECT_EQ(myList1.get(1), 3);
+}
+
+TEST(ReverseList, TEST206) {
+  l206::Solution l206;
+  auto list1 = GenerateList({1, 2, 3, 4, 5});
+  auto list1_ = GenerateList({5, 4, 3, 2, 1});
+  auto list2 = GenerateList({});
+  auto list2_ = GenerateList({});
+  EXPECT_TRUE(Checker(l206.reverseList(list1), list1_));
+  EXPECT_TRUE(Checker(l206.reverseList(list2), list2_));
+}
+
+TEST(SwapList, TEST24) {
+  l24::Solution l24;
+  auto list1 = GenerateList({1, 2, 3, 4});
+  auto list1_ = GenerateList({2, 1, 4, 3});
+  auto list2 = GenerateList({});
+  auto list2_ = GenerateList({});
+  auto list3 = GenerateList({1});
+  auto list3_ = GenerateList({1});
+  EXPECT_TRUE(Checker(l24.swapPairs(list1), list1_));
+  EXPECT_TRUE(Checker(l24.swapPairs(list2), list2_));
+  EXPECT_TRUE(Checker(l24.swapPairs(list3), list3_));
+}
+
+TEST(EraseElements, TEST19) {
+  l19::Solution l19;
+  auto list1 = GenerateList({1, 2, 3, 4, 5});
+  auto list1_ = GenerateList({1, 2, 3, 5});
+  auto list2 = GenerateList({1});
+  auto list2_ = GenerateList({});
+  auto list3 = GenerateList({1, 2});
+  auto list3_ = GenerateList({1});
+
+  EXPECT_TRUE(Checker(l19.removeNthFromEnd(list1, 2), list1_));
+  EXPECT_TRUE(Checker(l19.removeNthFromEnd(list2, 1), list2_));
+  EXPECT_TRUE(Checker(l19.removeNthFromEnd(list3, 1), list3_));
 }
