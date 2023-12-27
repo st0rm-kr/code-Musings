@@ -9,6 +9,16 @@ public:
     head->prev = head;
   }
 
+  ~MyLinkedList() {
+    ListNode *p = head->next;
+    while (size--) {
+      auto q = p->next;
+      delete p;
+      p = q;
+    }
+    delete head;
+  }
+
   int get(int index) {
     if (index < size) {
       if (index == 0) {
