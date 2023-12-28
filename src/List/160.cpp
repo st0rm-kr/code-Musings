@@ -15,4 +15,4 @@ public:
     return p;
   }
 };
-}
+}  // namespace l160

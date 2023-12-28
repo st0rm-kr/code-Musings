@@ -17,4 +17,4 @@ class Solution {
     return {res.begin(), res.end()};
   }
 };
-}
+}  // namespace l349

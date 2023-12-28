@@ -15,4 +15,4 @@ class Solution {
     }
   }
 };
-}
+}  // namespace l283

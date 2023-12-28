@@ -26,4 +26,4 @@ private:
   int dx[4] = {0, 1, 0, -1};
   int dy[4] = {1, 0, -1, 0};
 };
-}
+}  // namespace l59

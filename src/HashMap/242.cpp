@@ -14,4 +14,4 @@ class Solution {
     return true;
   }
 };
-}
+}  // namespace l242

@@ -22,4 +22,4 @@ public:
     return nullptr;
   }
 };
-}
+}  // namespace l142
