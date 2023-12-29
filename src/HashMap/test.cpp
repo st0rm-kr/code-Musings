@@ -3,6 +3,8 @@
 #include "242.cpp"
 #include "349.cpp"
 #include "454.cpp"
+#include "383.cpp"
+#include "15.cpp"
 #include "gtest/gtest.h"
 
 TEST(HashMap, TEST242) {
@@ -46,4 +48,24 @@ TEST(HashMap, TEST454) {
   std::vector<int> c{-1, 2};
   std::vector<int> d{0, 2};
   EXPECT_EQ(l454.fourSumCount(a, b, c, d), 2);
+}
+
+TEST(HashMap, TEST383) {
+  l383::Solution l383;
+  EXPECT_FALSE(l383.canConstruct("a", "b"));
+  EXPECT_FALSE(l383.canConstruct("aa", "ab"));
+  EXPECT_TRUE(l383.canConstruct("aa", "aab"));
+}
+
+TEST(HashMap, TEST15) {
+  l15::Solution l15;
+  std::vector<int> case1 = {-1, 0, 1, 2, -1, -4};
+  std::vector<std::vector<int>> ans1 = {{-1, -1, 2}, {-1, 0, 1}};
+  std::vector<int> case2 = {0, 1, 1};
+  std::vector<std::vector<int>> ans2 = {};
+  std::vector<int> case3 = {0, 0, 0};
+  std::vector<std::vector<int>> ans3 = {{0, 0, 0}};
+  EXPECT_EQ(l15.threeSum(case1), ans1);
+  EXPECT_EQ(l15.threeSum(case2), ans2);
+  EXPECT_EQ(l15.threeSum(case3), ans3);
 }
