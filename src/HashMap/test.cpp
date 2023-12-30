@@ -5,6 +5,7 @@
 #include "454.cpp"
 #include "383.cpp"
 #include "15.cpp"
+#include "18.cpp"
 #include "gtest/gtest.h"
 
 TEST(HashMap, TEST242) {
@@ -68,4 +69,19 @@ TEST(HashMap, TEST15) {
   EXPECT_EQ(l15.threeSum(case1), ans1);
   EXPECT_EQ(l15.threeSum(case2), ans2);
   EXPECT_EQ(l15.threeSum(case3), ans3);
+}
+
+TEST(HashMap, TEST18) {
+  l18::Solution l18;
+  std::vector<int> case1 = {1, 0, -1, 0, -2, 2};
+  std::vector<std::vector<int>> ans1 = {
+      {-2, -1, 1, 2}, {-2, 0, 0, 2}, {-1, 0, 0, 1}};
+  std::vector<int> case2 = {2, 2, 2, 2, 2};
+  std::vector<std::vector<int>> ans2 = {{2, 2, 2, 2}};
+  std::vector<int> case3 = {1000000000, 1000000000, 1000000000, 1000000000};
+  std::vector<std::vector<int>> ans3 = {};
+
+  EXPECT_EQ(l18.fourSum(case1, 0), ans1);
+  EXPECT_EQ(l18.fourSum(case2, 8), ans2);
+  EXPECT_EQ(l18.fourSum(case3, -294967296), ans3);
 }
