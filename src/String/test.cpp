@@ -2,6 +2,9 @@
 #include "541.cpp"
 #include "replace_string.cpp"
 #include "151.cpp"
+#include "lcr182.cpp"
+#include "28.cpp"
+#include "459.cpp"
 #include "gtest/gtest.h"
 
 TEST(String, TEST344) {
@@ -39,4 +42,27 @@ TEST(String, TEST151) {
   EXPECT_EQ(l151.reverseWords("the sky is blue"), "blue is sky the");
   EXPECT_EQ(l151.reverseWords("  hello world  "), "world hello");
   EXPECT_EQ(l151.reverseWords("a good   example"), "example good a");
+}
+
+TEST(String, TEST_LCR182) {
+  lcr182::Solution lcr182;
+
+  EXPECT_EQ(lcr182.dynamicPassword("s3cur1tyC0d3", 4), "r1tyC0d3s3cu");
+  EXPECT_EQ(lcr182.dynamicPassword("vbzkgsaoiu", 2), "zkgsaoiuvb");
+}
+
+TEST(String, TEST28) {
+  l28::Solution l28;
+
+  EXPECT_EQ(l28.strStr("sadbutsad", "sad"), 0);
+  EXPECT_EQ(l28.strStr("leetcode", "leeto"), -1);
+}
+
+TEST(String, TEST459) {
+  l459::Solution l459;
+
+  EXPECT_TRUE(l459.repeatedSubstringPattern("abab"));
+  EXPECT_TRUE(l459.repeatedSubstringPattern("abcabcabcabc"));
+  EXPECT_FALSE(l459.repeatedSubstringPattern("aba"));
+  EXPECT_FALSE(l459.repeatedSubstringPattern("ababba"));
 }
