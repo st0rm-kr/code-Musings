@@ -12,7 +12,7 @@ TEST(Stack, TEST232) {
   EXPECT_FALSE(l232.empty());
 }
 
-TEST(Stack, TEST225) {
+TEST(Queue, TEST225) {
   l225::MyStack l225;
 
   l225.push(1);
