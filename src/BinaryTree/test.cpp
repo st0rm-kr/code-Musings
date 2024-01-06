@@ -7,6 +7,11 @@
 #include "222.cpp"
 #include "110.cpp"
 #include "257.cpp"
+#include "404.cpp"
+#include "513.cpp"
+#include "112.cpp"
+#include "106.cpp"
+#include "654.cpp"
 #include <queue>
 
 // 将二叉树平坦化成一维数组
@@ -131,5 +136,76 @@ TEST(BinaryTree, TEST257) {
 
   auto *tree = new TreeNode(1);
   EXPECT_EQ(l257.binaryTreePaths(tree), std::vector<std::string>({"1"}));
+  CollectGarbage(tree);
+}
+
+TEST(BinaryTree, TEST404) {
+  l404::Solution l404;
+
+  auto *tree = new TreeNode(3);
+  tree->left = new TreeNode(9);
+  tree->right = new TreeNode(20);
+  tree->right->left = new TreeNode(15);
+  tree->right->right = new TreeNode(7);
+  EXPECT_EQ(l404.sumOfLeftLeaves(tree), 24);
+  CollectGarbage(tree);
+}
+
+TEST(BinaryTree, TEST513) {
+  l513::Solution l513;
+
+  auto *tree = new TreeNode(1);
+  tree->left = new TreeNode(2);
+  tree->left->left = new TreeNode(4);
+  tree->right = new TreeNode(3);
+  tree->right->left = new TreeNode(5);
+  tree->right->left->left = new TreeNode(7);
+  tree->right->right = new TreeNode(6);
+
+  EXPECT_EQ(l513.findBottomLeftValue(tree), 7);
+  CollectGarbage(tree);
+}
+
+TEST(BinaryTree, TEST112) {
+  l112::Solution l112;
+
+  auto *tree = new TreeNode(1);
+  tree->left = new TreeNode(2);
+  tree->right = new TreeNode(3);
+  EXPECT_FALSE(l112.hasPathSum(tree, 5));
+  CollectGarbage(tree);
+}
+
+TEST(BinaryTree, TEST106) {
+  l106::Solution l106;
+
+  std::vector<int> inorder{9, 3, 15, 20, 7};
+  std::vector<int> postorder{9, 15, 7, 20, 3};
+  auto *tree = new TreeNode(3);
+  tree->left = new TreeNode(9);
+  tree->right = new TreeNode(20);
+  tree->right->left = new TreeNode(15);
+  tree->right->right = new TreeNode(7);
+  auto ans = flatten(tree);
+
+  auto res = l106.buildTree(inorder, postorder);
+  EXPECT_EQ(ans, flatten(res));
+
+  CollectGarbage(res);
+  CollectGarbage(tree);
+}
+
+TEST(BinaryTree, TEST654) {
+  l654::Solution l654;
+
+  std::vector<int> nums{3, 2, 1};
+  auto *tree = new TreeNode(3);
+  tree->right = new TreeNode(2);
+  tree->right->right = new TreeNode(1);
+  auto case1 = flatten(tree);
+  auto res = l654.build(nums, 0, 2);
+
+  EXPECT_EQ(case1, flatten(res));
+  CollectGarbage(res);
   CollectGarbage(tree);
 }
