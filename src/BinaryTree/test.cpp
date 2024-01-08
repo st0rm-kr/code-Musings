@@ -12,6 +12,9 @@
 #include "112.cpp"
 #include "106.cpp"
 #include "654.cpp"
+#include "98.cpp"
+#include "530.cpp"
+#include "501.cpp"
 #include <queue>
 
 // 将二叉树平坦化成一维数组
@@ -207,5 +210,43 @@ TEST(BinaryTree, TEST654) {
 
   EXPECT_EQ(case1, flatten(res));
   CollectGarbage(res);
+  CollectGarbage(tree);
+}
+
+TEST(BinaryTree, TEST98) {
+  l98::Solution l98;
+
+  auto *tree = new TreeNode(5);
+  tree->left = new TreeNode(4);
+  tree->right = new TreeNode(6);
+  tree->right->left = new TreeNode(3);
+  tree->right->right = new TreeNode(7);
+
+  EXPECT_FALSE(l98.isValidBST(tree));
+  CollectGarbage(tree);
+}
+
+TEST(BinaryTree, TEST530) {
+  l530::Solution l530;
+
+  auto *tree = new TreeNode(4);
+  tree->left = new TreeNode(2);
+  tree->right = new TreeNode(6);
+  tree->left->left = new TreeNode(1);
+  tree->left->right = new TreeNode(3);
+
+  EXPECT_EQ(l530.getMinimumDifference(tree), 1);
+  CollectGarbage(tree);
+}
+
+TEST(BinaryTree, TEST501) {
+  l501::Solution l501;
+
+  auto *tree = new TreeNode(1);
+  tree->right = new TreeNode(2);
+  tree->right->left = new TreeNode(2);
+
+  std::vector<int> ans{2};
+  EXPECT_EQ(l501.findMode(tree), ans);
   CollectGarbage(tree);
 }
