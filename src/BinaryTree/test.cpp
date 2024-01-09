@@ -15,6 +15,9 @@
 #include "98.cpp"
 #include "530.cpp"
 #include "501.cpp"
+#include "236.cpp"
+#include "235.cpp"
+#include "701.cpp"
 #include <queue>
 
 // 将二叉树平坦化成一维数组
@@ -248,5 +251,39 @@ TEST(BinaryTree, TEST501) {
 
   std::vector<int> ans{2};
   EXPECT_EQ(l501.findMode(tree), ans);
+  CollectGarbage(tree);
+}
+
+TEST(BinaryTree, TEST236) {
+  l236::Solution l236;
+
+  auto *tree = new TreeNode(1);
+  tree->left = new TreeNode(2);
+
+  EXPECT_EQ(tree->val, l236.lowestCommonAncestor(tree, tree, tree->left)->val);
+  CollectGarbage(tree);
+}
+
+TEST(BinaryTree, TEST235) {
+  l235::Solution l235;
+
+  auto *tree = new TreeNode(2);
+  tree->left = new TreeNode(1);
+  tree->right = new TreeNode(3);
+
+  EXPECT_EQ(tree->val,
+            l235.lowestCommonAncestor(tree, tree->left, tree->right)->val);
+  CollectGarbage(tree);
+}
+
+TEST(BinaryTree, TEST701) {
+  l701::Solution l701;
+
+  auto *tree = new TreeNode(2);
+  l701.insertIntoBST(tree, 1);
+
+  auto res = flatten(tree);
+  std::vector<int> ans = {2, 1};
+  EXPECT_EQ(ans, res);
   CollectGarbage(tree);
 }
