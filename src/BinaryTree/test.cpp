@@ -14,6 +14,12 @@
 #include "654.cpp"
 #include "617.cpp"
 #include "700.cpp"
+#include "98.cpp"
+#include "530.cpp"
+#include "501.cpp"
+#include "236.cpp"
+#include "235.cpp"
+#include "701.cpp"
 #include <queue>
 
 // 将二叉树平坦化成一维数组
@@ -245,5 +251,74 @@ TEST(BinaryTree, TEST700) {
   tree->left->right = new TreeNode(3);
 
   EXPECT_EQ(l700.searchBST(tree, 2)->val, 2);
+TEST(BinaryTree, TEST98) {
+  l98::Solution l98;
+
+  auto *tree = new TreeNode(5);
+  tree->left = new TreeNode(4);
+  tree->right = new TreeNode(6);
+  tree->right->left = new TreeNode(3);
+  tree->right->right = new TreeNode(7);
+
+  EXPECT_FALSE(l98.isValidBST(tree));
+  CollectGarbage(tree);
+}
+
+TEST(BinaryTree, TEST530) {
+  l530::Solution l530;
+
+  auto *tree = new TreeNode(4);
+  tree->left = new TreeNode(2);
+  tree->right = new TreeNode(6);
+  tree->left->left = new TreeNode(1);
+  tree->left->right = new TreeNode(3);
+
+  EXPECT_EQ(l530.getMinimumDifference(tree), 1);
+  CollectGarbage(tree);
+}
+
+TEST(BinaryTree, TEST501) {
+  l501::Solution l501;
+
+  auto *tree = new TreeNode(1);
+  tree->right = new TreeNode(2);
+  tree->right->left = new TreeNode(2);
+
+  std::vector<int> ans{2};
+  EXPECT_EQ(l501.findMode(tree), ans);
+  CollectGarbage(tree);
+}
+
+TEST(BinaryTree, TEST236) {
+  l236::Solution l236;
+
+  auto *tree = new TreeNode(1);
+  tree->left = new TreeNode(2);
+
+  EXPECT_EQ(tree->val, l236.lowestCommonAncestor(tree, tree, tree->left)->val);
+  CollectGarbage(tree);
+}
+
+TEST(BinaryTree, TEST235) {
+  l235::Solution l235;
+
+  auto *tree = new TreeNode(2);
+  tree->left = new TreeNode(1);
+  tree->right = new TreeNode(3);
+
+  EXPECT_EQ(tree->val,
+            l235.lowestCommonAncestor(tree, tree->left, tree->right)->val);
+  CollectGarbage(tree);
+}
+
+TEST(BinaryTree, TEST701) {
+  l701::Solution l701;
+
+  auto *tree = new TreeNode(2);
+  l701.insertIntoBST(tree, 1);
+
+  auto res = flatten(tree);
+  std::vector<int> ans = {2, 1};
+  EXPECT_EQ(ans, res);
   CollectGarbage(tree);
 }
