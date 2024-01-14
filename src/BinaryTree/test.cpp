@@ -251,6 +251,8 @@ TEST(BinaryTree, TEST700) {
   tree->left->right = new TreeNode(3);
 
   EXPECT_EQ(l700.searchBST(tree, 2)->val, 2);
+}
+
 TEST(BinaryTree, TEST98) {
   l98::Solution l98;
 
