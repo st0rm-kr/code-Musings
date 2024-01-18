@@ -3,8 +3,6 @@
 namespace l77 {
 class Solution {
 public:
-  int k_{};;
-  int n_{};
   std::vector<std::vector<int>> res{};
   void dfs(int u, std::vector<int> &path) {
     if (path.size() == k_) {
@@ -25,5 +23,9 @@ public:
     dfs(1, path);
     return res;
   }
+
+private:
+  int k_{};
+  int n_{};
 };
 }  // namespace l77
