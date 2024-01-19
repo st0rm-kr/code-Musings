@@ -2,6 +2,7 @@
 #include "216.cpp"
 #include "17.cpp"
 #include "39.cpp"
+#include "131.cpp"
 #include "gtest/gtest.h"
 
 TEST(Search, TEST77) {
@@ -34,4 +35,12 @@ TEST(Search, TEST39) {
   std::vector<std::vector<int>> ans{{2, 2, 3}, {7}};
   std::vector<int> candidates{2, 3, 6, 7};
   EXPECT_EQ(l39.combinationSum(candidates, 7), ans);
+}
+
+TEST(Search, TEST131) {
+  l131::Solution l131;
+
+  std::vector<std::vector<std::string>> ans{
+      {"a", "a", "b"}, {"aa", "b"}};
+  EXPECT_EQ(l131.partition("aab"), ans);
 }
