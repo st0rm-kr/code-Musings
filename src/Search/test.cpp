@@ -1,8 +1,10 @@
+#include <vector>
 #include "77.cpp"
 #include "216.cpp"
 #include "17.cpp"
 #include "39.cpp"
 #include "131.cpp"
+#include "93.cpp"
 #include "gtest/gtest.h"
 
 TEST(Search, TEST77) {
@@ -43,4 +45,11 @@ TEST(Search, TEST131) {
   std::vector<std::vector<std::string>> ans{
       {"a", "a", "b"}, {"aa", "b"}};
   EXPECT_EQ(l131.partition("aab"), ans);
+}
+
+TEST(Search, TEST93) {
+  l93::Solution l93;
+
+  std::vector<std::string> ans{{"255.255.11.135"}, {"255.255.111.35"}};
+  EXPECT_EQ(l93.restoreIpAddresses("25525511135"), ans);
 }
