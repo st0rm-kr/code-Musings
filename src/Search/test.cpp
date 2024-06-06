@@ -6,6 +6,7 @@
 #include "77.cpp"
 #include "93.cpp"
 #include "46.cpp"
+#include "40.cpp"
 #include "gtest/gtest.h"
 #include <vector>
 
@@ -74,4 +75,12 @@ TEST(Search, TEST46) {
                                     {2, 3, 1}, {3, 1, 2}, {3, 2, 1}};
 
   EXPECT_EQ(l46.permute(case1), ans1);
+}
+
+TEST(Search, TEST40) {
+  l40::Solution l40;
+
+  std::vector<int> case1 = {10, 1, 2, 7, 6, 1, 5};
+  std::vector<std::vector<int>> res = {{1, 1, 6}, {1, 2, 5}, {1, 7}, {2, 6}};
+  EXPECT_EQ(l40.combinationSum2(case1, 8), res);
 }
