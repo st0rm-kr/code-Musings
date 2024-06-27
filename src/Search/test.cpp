@@ -7,6 +7,7 @@
 #include "93.cpp"
 #include "46.cpp"
 #include "40.cpp"
+#include "78.cpp"
 #include "gtest/gtest.h"
 #include <vector>
 
@@ -83,4 +84,13 @@ TEST(Search, TEST40) {
   std::vector<int> case1 = {10, 1, 2, 7, 6, 1, 5};
   std::vector<std::vector<int>> res = {{1, 1, 6}, {1, 2, 5}, {1, 7}, {2, 6}};
   EXPECT_EQ(l40.combinationSum2(case1, 8), res);
+}
+
+TEST(Search, TEST78) {
+  l78::Solution l78;
+
+  std::vector<int> case1 = {1, 2, 3};
+  std::vector<std::vector<int>> ans1 = {{},  {1},    {2},    {1, 2},
+                                        {3}, {1, 3}, {2, 3}, {1, 2, 3}};
+  EXPECT_EQ(l78.subsets(case1), ans1);
 }
