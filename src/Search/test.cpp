@@ -8,6 +8,7 @@
 #include "46.cpp"
 #include "40.cpp"
 #include "78.cpp"
+#include "47.cpp"
 #include "gtest/gtest.h"
 #include <vector>
 
@@ -93,4 +94,16 @@ TEST(Search, TEST78) {
   std::vector<std::vector<int>> ans1 = {{},  {1},    {2},    {1, 2},
                                         {3}, {1, 3}, {2, 3}, {1, 2, 3}};
   EXPECT_EQ(l78.subsets(case1), ans1);
+}
+
+TEST(Search, TEST47) {
+  l47::Solution l47;
+
+  std::vector<int> case1 = {1, 1, 2};
+  std::vector<std::vector<int>> ans1 = {
+      {1, 1, 2},
+      {1, 2, 1},
+      {2, 1, 1},
+  };
+  EXPECT_EQ(l47.permuteUnique(case1), ans1);
 }
