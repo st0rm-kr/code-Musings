@@ -2,16 +2,16 @@
 #include "17.cpp"
 #include "216.cpp"
 #include "39.cpp"
+#include "40.cpp"
+#include "46.cpp"
+#include "47.cpp"
 #include "491.cpp"
 #include "77.cpp"
-#include "93.cpp"
-#include "46.cpp"
-#include "40.cpp"
 #include "78.cpp"
-#include "47.cpp"
+#include "90.cpp"
+#include "93.cpp"
 #include "gtest/gtest.h"
 #include <vector>
-
 
 TEST(Search, TEST77) {
   l77::Solution l77;
@@ -74,7 +74,7 @@ TEST(Search, TEST46) {
 
   std::vector<int> case1{1, 2, 3};
   std::vector<std::vector<int>> ans1{{1, 2, 3}, {1, 3, 2}, {2, 1, 3},
-                                    {2, 3, 1}, {3, 1, 2}, {3, 2, 1}};
+                                     {2, 3, 1}, {3, 1, 2}, {3, 2, 1}};
 
   EXPECT_EQ(l46.permute(case1), ans1);
 }
@@ -106,4 +106,14 @@ TEST(Search, TEST47) {
       {2, 1, 1},
   };
   EXPECT_EQ(l47.permuteUnique(case1), ans1);
+}
+
+TEST(Search, TEST90) {
+  l90::Solution l90;
+
+  std::vector<int> case1 = {1, 2, 2};
+  std::vector<std::vector<int>> ans1 = {
+      {}, {1}, {2}, {1, 2}, {2, 2}, {1, 2, 2},
+  };
+  EXPECT_EQ(l90.subsetsWithDup(case1), ans1);
 }
