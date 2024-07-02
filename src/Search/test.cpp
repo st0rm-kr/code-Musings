@@ -10,6 +10,7 @@
 #include "78.cpp"
 #include "90.cpp"
 #include "93.cpp"
+#include "332.cpp"
 #include "gtest/gtest.h"
 #include <vector>
 
@@ -116,4 +117,13 @@ TEST(Search, TEST90) {
       {}, {1}, {2}, {1, 2}, {2, 2}, {1, 2, 2},
   };
   EXPECT_EQ(l90.subsetsWithDup(case1), ans1);
+}
+
+TEST(Search, TEST332) {
+  l332::Solution l332;
+
+  std::vector<std::vector<std::string>> case1 = {
+      {"MUC", "LHR"}, {"JFK", "MUC"}, {"SFO", "SJC"}, {"LHR", "SFO"}};
+  std::vector<std::string> ans1 = {"JFK", "MUC", "LHR", "SFO", "SJC"};
+  EXPECT_EQ(l332.findItinerary(case1), ans1);
 }
