@@ -1,16 +1,18 @@
 #include "131.cpp"
 #include "17.cpp"
 #include "216.cpp"
+#include "332.cpp"
+#include "37.cpp"
 #include "39.cpp"
 #include "40.cpp"
 #include "46.cpp"
 #include "47.cpp"
 #include "491.cpp"
+#include "51.cpp"
 #include "77.cpp"
 #include "78.cpp"
 #include "90.cpp"
 #include "93.cpp"
-#include "332.cpp"
 #include "gtest/gtest.h"
 #include <vector>
 
@@ -126,4 +128,38 @@ TEST(Search, TEST332) {
       {"MUC", "LHR"}, {"JFK", "MUC"}, {"SFO", "SJC"}, {"LHR", "SFO"}};
   std::vector<std::string> ans1 = {"JFK", "MUC", "LHR", "SFO", "SJC"};
   EXPECT_EQ(l332.findItinerary(case1), ans1);
+}
+
+TEST(Search, TEST51) {
+  l51::Solution l51;
+  int n = 4;
+  std::vector<std::vector<std::string>> ans1 = {
+      {".Q..", "...Q", "Q...", "..Q."}, {"..Q.", "Q...", "...Q", ".Q.."}};
+  EXPECT_EQ(l51.solveNQueens(n), ans1);
+}
+
+TEST(Search, TEST37) {
+  l37::Solution l37;
+  std::vector<std::vector<char>> board = {
+      {{'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+       {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+       {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+       {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+       {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+       {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+       {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+       {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+       {'.', '.', '.', '.', '8', '.', '.', '7', '9'}}};
+  std::vector<std::vector<char>> ans = {
+      {{ '5', '3', '4', '6', '7', '8', '9', '1', '2' },
+       { '6', '7', '2', '1', '9', '5', '3', '4', '8' },
+       { '1', '9', '8', '3', '4', '2', '5', '6', '7' },
+       { '8', '5', '9', '7', '6', '1', '4', '2', '3' },
+       { '4', '2', '6', '8', '5', '3', '7', '9', '1' },
+       { '7', '1', '3', '9', '2', '4', '8', '5', '6' },
+       { '9', '6', '1', '5', '3', '7', '2', '8', '4' },
+       { '2', '8', '7', '4', '1', '9', '6', '3', '5' },
+       { '3', '4', '5', '2', '8', '6', '1', '7', '9' }}};
+  l37.solveSudoku(board);
+  EXPECT_EQ(board, ans);
 }
