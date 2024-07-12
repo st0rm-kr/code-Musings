@@ -1,6 +1,7 @@
 #include "376.cpp"
 #include "455.cpp"
 #include "53.cpp"
+#include "122.cpp"
 #include <gtest/gtest.h>
 
 TEST(Greedy, TEST455) {
@@ -28,4 +29,11 @@ TEST(Greedy, TEST53) {
 
   std::vector<int> nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
   EXPECT_EQ(l53.maxSubArray(nums), 6);
+}
+
+TEST(Greedy, TEST122) {
+  l122::Solution l122;
+
+  std::vector<int> prices = {7, 1, 5, 3, 6, 4};
+  EXPECT_EQ(l122.maxProfit(prices), 7);
 }
