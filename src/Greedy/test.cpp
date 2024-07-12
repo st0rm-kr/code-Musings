@@ -1,5 +1,6 @@
 #include "376.cpp"
 #include "455.cpp"
+#include "53.cpp"
 #include <gtest/gtest.h>
 
 TEST(Greedy, TEST455) {
@@ -20,4 +21,11 @@ TEST(Greedy, TEST376) {
   EXPECT_EQ(l376.wiggleMaxLength(case1), 6);
   EXPECT_EQ(l376.wiggleMaxLength(case2), 7);
   EXPECT_EQ(l376.wiggleMaxLength(case3), 2);
+}
+
+TEST(Greedy, TEST53) {
+  l53::Solution l53;
+
+  std::vector<int> nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+  EXPECT_EQ(l53.maxSubArray(nums), 6);
 }
