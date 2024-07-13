@@ -2,6 +2,8 @@
 #include "455.cpp"
 #include "53.cpp"
 #include "122.cpp"
+#include "55.cpp"
+#include "45.cpp"
 #include <gtest/gtest.h>
 
 TEST(Greedy, TEST455) {
@@ -36,4 +38,18 @@ TEST(Greedy, TEST122) {
 
   std::vector<int> prices = {7, 1, 5, 3, 6, 4};
   EXPECT_EQ(l122.maxProfit(prices), 7);
+}
+
+TEST(Greedy, TEST55) {
+  l55::Solution l55;
+
+  std::vector<int> nums = {2, 3, 1, 1, 4};
+  EXPECT_EQ(l55.canJump(nums), true);
+}
+
+TEST(Greedy, TEST45) {
+  l45::Solution l45;
+
+  std::vector<int> nums = {2, 3, 1, 1, 4};
+  EXPECT_EQ(l45.jump(nums), 2);
 }
