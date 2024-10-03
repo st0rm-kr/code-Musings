@@ -4,6 +4,7 @@
 #include "122.cpp"
 #include "55.cpp"
 #include "45.cpp"
+#include "1005.cpp"
 #include <gtest/gtest.h>
 
 TEST(Greedy, TEST455) {
@@ -52,4 +53,10 @@ TEST(Greedy, TEST45) {
 
   std::vector<int> nums = {2, 3, 1, 1, 4};
   EXPECT_EQ(l45.jump(nums), 2);
+}
+
+TEST(Greedy, TEST1005) {
+  l1005::Solution l1005;
+  std::vector<int> case1 = {2, -3, -1, 5, -4};
+  EXPECT_EQ(l1005.largestSumAfterKNegations(case1, 3), 13);
 }
